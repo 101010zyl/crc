@@ -7,7 +7,7 @@ static char input = 0;
 int
 main()
 {
-    printf("long long int: %d\n", sizeof(long long int));
+    printf("long long int: %d\n", sizeof(unsigned long long int));
     printf("long int: %d\n", sizeof(long int));
     printf("int: %d\n", sizeof(int));
     printf("\n");

@@ -5,7 +5,7 @@ showbinary(polynml n)
 {
     int i;
     for (i = BITNUM - 1; i >= 0; i--) {
-        if (n & (1 << i)) {
+        if (n & (1ULL << i)) {
             printf("1");
         } else {
             printf("0");
@@ -59,7 +59,7 @@ inputpolynml(polynml *n)
         if(input == -1){
             break;
         }
-        *n |= (1 << input);
+        *n |= (1ULL << input);
     }
     printf("input polynomial: ");
     showpolynml(*n);
@@ -71,7 +71,7 @@ showpolynml(polynml n)
 {
     int i;
     for(i = BITNUM - 1; i >= 0; i--){
-        if(n & (1 << i)){
+        if(n & (1ULL << i)){
             printf("x^%d + ", i);
         }
     }

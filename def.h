@@ -3,9 +3,9 @@
 #include <string.h>
 
 typedef unsigned long long int polynml;
-#define BITNUM 32
+#define BITNUM 64
 
-static polynml set[2] = {0xd, 0x18005};
+static polynml set[2] = {0x000000000000000d, 0x18005};
 
 // util.c
 int showbinary(polynml n);

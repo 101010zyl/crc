@@ -13,7 +13,7 @@ crc(polynml origin, polynml gen)
     int genlen = 0;
     int i = 0;
     for(i = BITNUM - 1; i >= 0; i--){
-        if(gen & (1 << i)){
+        if(gen & (1ULL << i)){
             genlen = i;
             break;
         }
@@ -22,7 +22,7 @@ crc(polynml origin, polynml gen)
     // get the length of origin
     int originlen = 0;
     for(i = BITNUM - 1; i >= 0; i--){
-        if(origin & (1 << i)){
+        if(origin & (1ULL << i)){
             originlen = i;
             break;
         }
@@ -38,8 +38,8 @@ crc(polynml origin, polynml gen)
 
     int j = 0;
     for(j = originlen; j >= 0; j--){
-        if(temp & (1 << genlen)){
-            result |= (1 << j);
+        if(temp & (1ULL << genlen)){
+            result |= (1ULL << j);
             temp ^= gen;
         }else{
             temp ^= 0;
