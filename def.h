@@ -6,6 +6,6 @@ typedef long long int polynml;
 #define BITNUM 64
 
 // util.c
-int showbinary(polynml *n);
-int showinfo(polynml *origin, polynml *gen);
+int showbinary(polynml n);
+int showinfo(polynml origin, polynml gen);
 int showmenu();
