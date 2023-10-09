@@ -13,3 +13,6 @@ int showinfo(polynml origin, polynml gen);
 int showmenu();
 int inputpolynml(polynml *n);
 int showpolynml(polynml n);
+
+// crc.c
+polynml crc(polynml origin, polynml gen);

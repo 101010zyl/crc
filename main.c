@@ -12,6 +12,8 @@ main()
     printf("int: %d\n", sizeof(int));
     printf("\n");
 
+    gen = set[0];
+    origin = 0x29;
 
     while(1){
         showmenu();
@@ -38,6 +40,7 @@ main()
                 showinfo(origin, gen);
                 break;
             case 4:
+                crc(origin, gen);
                 break;
             case 5:
                 return 0;
