@@ -4,7 +4,7 @@ int
 showbinary(polynml n)
 {
     int i;
-    for (i = BITNUM; i >= 0; i--) {
+    for (i = BITNUM - 1; i >= 0; i--) {
         if (n & (1 << i)) {
             printf("1");
         } else {
@@ -18,10 +18,12 @@ showbinary(polynml n)
 int
 showinfo(polynml origin, polynml gen)
 {
+    printf("\nnow the polynomials are:\n");
     printf("origin: ");
-    showbinary(origin);
+    showpolynml(origin);
     printf("generator: ");
-    showbinary(gen);
+    showpolynml(gen);
+    printf("\n");
     return 1;
 }
 
@@ -32,6 +34,47 @@ int showmenu()
     printf("2. set generator\n");
     printf("3. show info\n");
     printf("4. encode\n");
-    printf("5. quit\n\n");
+    printf("5. quit\n");
+    printf("6. set generator as: ");
+    showpolynml(set[0]);
+    printf("7. set generator as: ");
+    showpolynml(set[1]);
+    printf("\n");
+    return 1;
+}
+
+int
+inputpolynml(polynml *n)
+{
+    printf("For polynomial x^31 + x^3 + 1, input \"31 3 0 -1\", -1 is the end of input.\n");
+    printf("input: \n");
+    int input = 0;
+    while(scanf("%d", &input) != EOF){
+        if(input < -1 || input >= BITNUM){
+            printf("invalid input\n");
+            return 0;
+            break;
+        }
+        getchar();
+        if(input == -1){
+            break;
+        }
+        *n |= (1 << input);
+    }
+    printf("input polynomial: ");
+    showpolynml(*n);
+    return 1;
+}
+
+int
+showpolynml(polynml n)
+{
+    int i;
+    for(i = BITNUM - 1; i >= 0; i--){
+        if(n & (1 << i)){
+            printf("x^%d + ", i);
+        }
+    }
+    printf("0\n");
     return 1;
 }

@@ -1,5 +1,9 @@
 #include "def.h"
 
+static polynml origin = 0;
+static polynml gen = 0;
+static char input = 0;
+
 int
 main()
 {
@@ -7,13 +11,10 @@ main()
     printf("long int: %d\n", sizeof(long int));
     printf("int: %d\n", sizeof(int));
     printf("\n");
-    polynml origin = 0;
-    polynml gen = 0;
-    char input;
-    showmenu();
-    showinfo(origin, gen);
-    polynml set[2] = {0xd, 0x18005};
+
+
     while(1){
+        showmenu();
         if(scanf("%d", &input) == EOF){
             break;
         }
@@ -21,11 +22,17 @@ main()
         switch(input){
             case 1:
                 printf("input origin: ");
-                scanf("%lld", &origin);
+                if(inputpolynml(&origin) == 0){
+                    printf("origin input failed.\n");
+                }
+                showinfo(origin, gen);
                 break;
             case 2:
                 printf("input generator: ");
-                scanf("%lld", &gen);
+                if(inputpolynml(&gen) == 0){
+                    printf("generator input failed.\n");
+                }
+                showinfo(origin, gen);
                 break;
             case 3:
                 showinfo(origin, gen);
@@ -34,6 +41,15 @@ main()
                 break;
             case 5:
                 return 0;
+                break;
+            case 6:
+                gen = set[0];
+                showinfo(origin, gen);
+                break;
+            case 7:
+                gen = set[1];
+                showinfo(origin, gen);
+                break;
             default:
                 printf("invalid input\n");
                 showmenu();
