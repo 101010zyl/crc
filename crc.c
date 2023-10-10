@@ -3,12 +3,7 @@
 // calculate the crc code
 polynml
 crc(polynml origin, polynml gen)
-{
-    printf("origin: ");
-    showbinary(origin);
-    printf("generator: ");
-    showbinary(gen);
-    
+{ 
     //get the length of gen
     int genlen = 0;
     int i = 0;
@@ -53,7 +48,14 @@ crc(polynml origin, polynml gen)
     }
 
     polynml code = divider | remainder;
-    printf("result: ");
+
+    printf("origin:    ");
+    showbinary(origin);
+    printf("generator: ");
+    showbinary(gen);
+    printf("remainder: ");
+    showbinary(remainder);
+    printf("result:    ");
     showbinary(code);
     return code;
 }

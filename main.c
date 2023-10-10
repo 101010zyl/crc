@@ -12,8 +12,8 @@ main()
     printf("int: %d\n", sizeof(int));
     printf("\n");
 
-    gen = set[0];
-    origin = 0x29;
+    gen = set[1];
+    origin = 0x38007;
 
     while(1){
         showmenu();

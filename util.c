@@ -11,6 +11,7 @@ showbinary(polynml n)
             printf("0");
         }
     }
+    printf(" %llx", n);
     printf("\n");
     return 0;
 }
@@ -29,7 +30,8 @@ showinfo(polynml origin, polynml gen)
 
 int showmenu()
 {
-    printf("\nmenu:\n");
+    printf("\n----------------------------------------\n");
+    printf("menu:\n");
     printf("1. set origin\n");
     printf("2. set generator\n");
     printf("3. show info\n");
@@ -39,13 +41,14 @@ int showmenu()
     showpolynml(set[0]);
     printf("7. set generator as: ");
     showpolynml(set[1]);
-    printf("\n");
+    printf("-----------------------------------------\n");
     return 1;
 }
 
 int
 inputpolynml(polynml *n)
 {
+    *n = 0;
     printf("For polynomial x^31 + x^3 + 1, input \"31 3 0 -1\", -1 is the end of input.\n");
     printf("input: \n");
     int input = 0;
